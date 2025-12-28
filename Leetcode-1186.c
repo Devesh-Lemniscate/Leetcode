@@ -14,3 +14,7 @@ public:
             take = max(notTake, arr[i]+take);
             notTake = max(notTake+arr[i], arr[i]);
             ans = max(ans, max(take, notTake));
+        }
+        return ans;
+    }
+};
