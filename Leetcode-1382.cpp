@@ -19,7 +19,8 @@ private:
         if(low > high) return NULL;
         int mid = low + (high - low) / 2;
         TreeNode* newNode = new TreeNode(tree[mid]);
-        newNode->left = helper(tree)
+        newNode->left = helper(tree, low, mid-1);
+        newNode->right = helper(tree, mid+1, h)
     }
     void inorder(vector<int> &tree, TreeNode* root){
         if(root == NULL) return root;
