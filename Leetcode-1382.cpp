@@ -24,7 +24,7 @@ private:
         return newNode;
     }
     void inorder(vector<int> &tree, TreeNode* root){
-        if(root == NULL) return root;
+        if(root == NULL) return;
         inorder(tree, root->left);
         tree.push_back(root->val);
         inorder(tree, root->right);
@@ -33,6 +33,6 @@ public:
     TreeNode* balanceBST(TreeNode* root) {
         vector<int> tree;
         inorder(tree, root);
-        return helper(tree, 0, tree.size())
+        return helper(tree, 0, tree.size()-1);
     }
 };
