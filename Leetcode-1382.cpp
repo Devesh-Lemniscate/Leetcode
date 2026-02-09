@@ -16,7 +16,9 @@
 class Solution {
 private:
     TreeNode* helper(vector<int> &tree, int low, int high){
-        if(low )
+        if(low > high) return NULL;
+        int mid = low + (high - low) / 2;
+        TreeNode* new
     }
     void inorder(vector<int> &tree, TreeNode* root){
         if(root == NULL) return root;
