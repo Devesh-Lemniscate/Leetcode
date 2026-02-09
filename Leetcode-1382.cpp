@@ -15,7 +15,9 @@
  */
 class Solution {
 private:
-    TreeNode*
+    TreeNode* helper(vector<int> &tree, int low, int high){
+        if(low )
+    }
     void inorder(vector<int> &tree, TreeNode* root){
         if(root == NULL) return root;
         inorder(tree, root->left);
