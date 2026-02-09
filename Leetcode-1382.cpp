@@ -14,8 +14,17 @@
  * };
  */
 class Solution {
+private:
+    TreeNode*
+    void inorder(vector<int> &tree, TreeNode* root){
+        if(root == NULL) return root;
+        inorder(tree, root->left);
+        tree.push_back(root->val);
+        inorder(tree, root->right);
+    }
 public:
     TreeNode* balanceBST(TreeNode* root) {
-        
+        vector<int> tree;
+        inorder(tree, root);
     }
 };
