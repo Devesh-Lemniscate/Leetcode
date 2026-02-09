@@ -20,7 +20,8 @@ private:
         int mid = low + (high - low) / 2;
         TreeNode* newNode = new TreeNode(tree[mid]);
         newNode->left = helper(tree, low, mid-1);
-        newNode->right = helper(tree, mid+1, h)
+        newNode->right = helper(tree, mid+1, high);
+        return newNode;
     }
     void inorder(vector<int> &tree, TreeNode* root){
         if(root == NULL) return root;
@@ -32,5 +33,6 @@ public:
     TreeNode* balanceBST(TreeNode* root) {
         vector<int> tree;
         inorder(tree, root);
+        return helper(tree, 0, tree.size())
     }
 };
