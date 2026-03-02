@@ -11,7 +11,6 @@ public:
             vector<vector<int>> val(n);
             bool check = true;
             for(int j = 0; j < n; j++){
-                //bool flag = false;
                 for(int k = 0; k < grid[j].size(); k++){
                     if(!(grid[j][k] & (1 << i))){
                         val[j].push_back(grid[j][k]);
