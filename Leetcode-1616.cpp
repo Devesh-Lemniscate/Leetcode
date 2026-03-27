@@ -4,7 +4,7 @@
  */
 class Solution {
 private:
-    bool check(string a, string b){
+    bool check(string &a, string &b){
         int i = 0, j = b.size()-1;
         int len = a.size();
         while(a[i] == b[j] && i < j){
