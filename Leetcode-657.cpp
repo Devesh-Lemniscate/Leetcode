@@ -1,5 +1,5 @@
 /*
- * Problem 657: Robot Return to Origin
+ * Problem 657: Robot Return to Origin (POTD)
  * Language: C++
  */
 class Solution {
