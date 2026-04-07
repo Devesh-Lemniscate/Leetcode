@@ -2,6 +2,13 @@
  * Problem 146: LRU Cache
  * Language: C++
  */
+class Node{
+    Node* prev, *next;
+    Node(){
+        prev = NULL;
+        next = NULL;
+    }
+}
 class LRUCache {
 public:
     LRUCache(int capacity) {
