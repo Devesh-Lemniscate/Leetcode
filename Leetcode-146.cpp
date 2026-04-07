@@ -4,9 +4,12 @@
  */
 class Node{
     Node* prev, *next;
-    Node(){
+    int key, val;
+    Node(int k, int v){
         prev = NULL;
         next = NULL;
+        key = k;
+        val = v;
     }
 }
 class LRUCache {
