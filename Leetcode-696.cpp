@@ -1,19 +1,24 @@
 /*
- * Problem 696: Count Binary Substrings (POTD)
+ * Problem 696: Count Binary Substrings
  * Language: C++
  */
 class Solution {
 public:
     int countBinarySubstrings(string s) {
-        int curr = 1, prev = 0, ans = 0;
+        vector<int> freq;
+        int cnt = 1;
         for(int i = 1; i < s.size(); i++){
-            if(s[i-1] == s[i]) curr++;
+            if(s[i] == s[i-1]) cnt++;
             else{
-                ans += min(curr, prev);
-                prev = curr;
-                curr = 1;
+                freq.push_back(cnt);
+                cnt = 1;
             }
         }
-        return ans+min(curr, prev);
+        freq.push_back(cnt);
+        int maxi = 0;
+        for(int i = 1; i < freq.size(); i++){
+            maxi += min(freq[i], freq[i-1]);
+        }
+        return maxi;
     }
 };
