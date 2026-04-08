@@ -8,11 +8,12 @@ private:
         if(idx >= nums.size()) return false;
         if(idx == nums.size()-1) return true;
         if(dp[idx]!= -1) return dp[idx];
-        bool ans = false;
         for(int i = 1; i <= nums[idx]; i++){
-            ans |= helper(idx+i, nums, dp);
+            if (helper(idx + i, nums, dp)) {
+                return dp[idx] = true;
+            }
         }
-        return dp[idx] = ans;
+        return dp[idx] = false;
     }
 public:
     bool canJump(vector<int>& nums) {
