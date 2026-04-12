@@ -13,7 +13,7 @@ public:
             else{
                 st.pop();
                 if(st.empty()) st.push(i);
-                maxi = max(maxi, st.top()-i);
+                else maxi = max(maxi, st.top()-i);
             }
         }
         return maxi;
