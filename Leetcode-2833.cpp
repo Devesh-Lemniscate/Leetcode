@@ -1,5 +1,5 @@
 /*
- * Problem 2833: Furthest Point From Origin
+ * Problem 2833: Furthest Point From Origin (POTD)
  * Language: C++
  */
 class Solution {
