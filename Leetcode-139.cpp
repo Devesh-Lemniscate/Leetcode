@@ -20,8 +20,9 @@ private:
             }
             if(!flag) idx = prev;
             if(idx == len) return true;
-            if(helper(idx, s, words)) 
+            if(helper(idx, s, words)) return dp[idx] = true;
         }
+        return dp[idx] = false;
     }
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
