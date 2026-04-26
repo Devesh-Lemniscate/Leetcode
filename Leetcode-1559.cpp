@@ -1,5 +1,5 @@
 /*
- * Problem 1559: Detect Cycles in 2D Grid
+ * Problem 1559: Detect Cycles in 2D Grid (POTD)
  * Language: C++
  */
 class Solution {
