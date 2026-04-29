@@ -11,5 +11,6 @@ public:
             adj[i].push_back(parent[i]);
             adj[parent[i]].push_back(i);
         }
+        
     }
 };
