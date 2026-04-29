@@ -9,11 +9,13 @@ private:
         for(auto it: adj[node]){
             if(it != par){
                 int child = dfs(it, node, adj, ans, s);
-                if(child > temp1){
-                    temp2 = temp1;
-                    temp1 = child;
-                }else if(child > temp2){
-                    temp2 = child;
+                if(s[it] != s[node]){
+                    if(child > temp1){
+                        temp2 = temp1;
+                        temp1 = child;
+                    }else if(child > temp2){
+                        temp2 = child;
+                    }
                 }
             }
         }
