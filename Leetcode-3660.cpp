@@ -1,5 +1,5 @@
 /*
- * Problem 3660: Jump Game IX
+ * Problem 3660: Jump Game IX (POTD)
  * Language: C++
  */
 class Solution {
