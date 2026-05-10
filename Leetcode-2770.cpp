@@ -13,16 +13,13 @@ private:
         if(dp[idx][prev+1] != -1) return dp[idx][prev+1];
         
         int notTake = INT_MIN;
-        if(prev != -1) {
-            notTake = solve(idx+1, nums, prev, target, dp);
-        }
-        
+        if(prev != -1) notTake = solve(idx+1, nums, prev, target, dp);
         int take = INT_MIN;
-        if(prev == -1) {
+        if(prev == -1){
             take  = solve(idx+1, nums, idx, target, dp);
-        } else if(abs(nums[idx]-nums[prev]) <= target) {
+        }else if(abs(nums[idx]-nums[prev]) <= target) {
             int temp = solve(idx+1, nums, idx, target, dp);
-            if (temp != INT_MIN) {
+            if(temp != INT_MIN){
                 take = 1 + temp;
             }
         }
