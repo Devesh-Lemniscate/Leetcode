@@ -24,8 +24,23 @@ public:
 */
 
 class Solution {
+private:
+    void dfs(Node* org, Node* root, vector<Node*> &visited){
+        visited[root->val] = root;
+        for(auto node: org->neighbors){
+            if(!visited[node->val]){
+                Node* newNode = new Node(node->val);
+                (root->neighbors).push_back(newNode);
+                dfs(node, newNode, visited);
+            }else (root->neighbors).push_back(visited[node->val]); 
+        }
+    }
 public:
     Node* cloneGraph(Node* node) {
-        
+        if(!node) return node;
+        vector<Node*> visited(101, NULL);
+        Node *root = new Node(node->val);
+        dfs(node, root, visited);
+        return root;
     }
 };
