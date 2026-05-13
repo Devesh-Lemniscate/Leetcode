@@ -3,29 +3,29 @@
  * Language: C++
  */
 class Solution {
-private:    
-    int dp[301];
-    bool helper(int idx, string &s, vector<string> & words){
+private:
+    bool isPossible(int index, string &s, vector<string> &words, vector<int> &memo){
         int len = s.size();
-        if(idx == len) return true;
-        if(dp[idx] != -1) return dp[idx];
-        for(int i = 0; i < words.size(); i++){
-            string curr = words[i];
-            if(curr.size() > len-idx) continue;
-            bool flag = true;
-            for(int j = 0; j < curr.size(); j++){
-                if(curr[j] != s[idx+j]){
-                    flag = false;
+        if(index == len) return true;
+        if(memo[index] != -1) return memo[index];
+        for(int idx = 0; idx < words.size(); idx++){
+            string current = words[idx];
+            if(len - idx < current.size()) continue;
+            bool canTake = true;
+            for(int ind = 0; ind < current.size(); ind++){
+                if(current[ind] != s[index + ind]){
+                    canTake = false;
                     break;
                 }
             }
-            if(flag && helper(idx+curr.size(), s, words)) return dp[idx] = true;
+            if(canTake && isPossible(index + current.size(), s, words, memo)) return memo[index] = true;
         }
-        return dp[idx] = false;
+        return memo[index] = false;
     }
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
-        memset(dp, -1, sizeof(dp));
-        return helper(0, s, wordDict);
+        int len = s.size();
+        vector<int> memo(len+1, -1);
+        return isPossible(0, s, wordDict, memo);
     }
 };
