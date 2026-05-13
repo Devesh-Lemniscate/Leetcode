@@ -2,70 +2,69 @@
  * Problem 146: LRU Cache
  * Language: C++
  */
-class Node{
-public:
-    Node* prev, *next;
-    int key, val;
-    Node(int k, int v){
-        prev = NULL;
-        next = NULL;
-        key = k;
-        val = v;
-    }
-};
 class LRUCache {
+private:
+    class Node{
+    public:
+        Node *next, *prev;
+        int key;
+        int val;
+        Node(int key ,int val){
+            this->key = key;
+            this->val = val;
+        }
+    };
 public:
+    Node *head = new Node(-1, -1);
+    Node* tail = new Node(-1, -1);
     int cap;
-    Node* head, *tail;
     unordered_map<int, Node*> mp;
     LRUCache(int capacity) {
         cap = capacity;
-        head = new Node(-1, -1);
-        tail = new Node(-1, -1);
         head->next = tail;
         tail->prev = head;
     }
-    
+    void del(Node *temp){
+        Node *prv = temp->prev;
+        Node *nxt = temp->next;
+        nxt->prev = prv;
+        prv->next = nxt;
+    }
+    void add(Node* temp){
+        temp->next = head->next;
+        temp->prev = head;
+        head->next->prev = temp;
+        head->next = temp;
+    }
     int get(int key) {
-        if(!mp.count(key)) return -1;
-        Node* temp = mp[key];
-        temp->prev->next = temp->next;
-        temp->next->prev = temp->prev;
-        temp->next = tail;
-        temp->prev = tail->prev;
-        tail->prev->next = temp;
-        tail->prev = temp;
-        return mp[key]->val;
+        int res = -1;
+        if(mp.find(key)  != mp.end()){
+            Node* ans = mp[key];
+            res = ans->val;
+            del(ans);
+            add(ans);
+            return res;
+        }else return res;
     }
     
-    void put(int key, int value) {
-        if(mp.count(key)){
-            Node* temp = mp[key];
-            
-            temp->prev->next = temp->next;
-            temp->next->prev = temp->prev;
-
-            temp->val = value;
-
-            temp->next = tail;
-            temp->prev = tail->prev;
-            tail->prev->next = temp;
-            tail->prev =temp;
-        }else{
-            if(mp.size() == cap){
-                mp.erase(head->next->key);
-                Node* temp = head->next;
-                head->next = head->next->next;
-                head->next->prev = head;
-                delete temp;
-            }
-            Node *temp = new Node(key, value);
-            temp->next = tail;
-            temp->prev = tail->prev;
-            tail->prev->next = temp;
-            tail->prev =temp;
-            mp[key] = temp;
+    void put(int key, int val) {
+        if(mp.find(key) != mp.end()){
+            Node* ans = mp[key];
+            del(ans);
+            add(new Node(key, val));
+            mp[key] = head->next;
+            return;
         }
+        if(mp.size() == cap){
+            mp.erase(tail->prev->key);
+            del(tail->prev);
+            add(new Node(key, val));
+            mp[key] = head->next;
+        }else{
+            add(new Node(key, val));
+            mp[key] = head->next;
+        }
+
     }
 };
 
