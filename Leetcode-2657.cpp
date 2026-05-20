@@ -5,16 +5,13 @@
 class Solution {
 public:
     vector<int> findThePrefixCommonArray(vector<int>& A, vector<int>& B) {
-        int n = A.size(), cnt = 0;
-        vector<int> ans(n,0), mp(n+1, 0), tp(n+1, 0);
-        for(int i = 1; i < n+1; i++){
-            mp[A[i-1]]++;
-            tp[B[i-1]]++;
-            for(int j = 0; j < n; j++){
-                if(mp[j+1] && tp[j+1]) cnt++;
-            }
-            ans[i-1] = cnt;
-            cnt = 0;
+        int n = A.size();
+        vector<int> freq(n+1, 0), ans;
+        int cnt = 0;
+        for(int i = 0; i < n; i++){
+            if(++freq[A[i]] == 2) cnt++;
+            if(++freq[B[i]] == 2) cnt++;
+            ans.push_back(cnt);
         }
         return ans;
     }
