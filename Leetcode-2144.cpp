@@ -1,5 +1,5 @@
 /*
- * Problem 2144: Minimum Cost of Buying Candies With Discount
+ * Problem 2144: Minimum Cost of Buying Candies With Discount (POTD)
  * Language: C++
  */
 class Solution {
