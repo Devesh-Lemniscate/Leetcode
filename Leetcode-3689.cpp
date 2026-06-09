@@ -1,0 +1,12 @@
+/*
+ * Problem 3689: Maximum Total Subarray Value I (POTD)
+ * Language: C++
+ */
+class Solution {
+public:
+    long long maxTotalValue(vector<int>& nums, int k) {
+        int maxi = *max_element(nums.begin(), nums.end());
+        int mini = *min_element(nums.begin(), nums.end());
+        return 1LL* (maxi - mini) * k;
+    }
+};
