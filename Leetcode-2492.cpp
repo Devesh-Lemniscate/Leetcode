@@ -26,6 +26,6 @@ public:
                 }
             }
         }
-        return mini;
+        return ;
     }
 };
