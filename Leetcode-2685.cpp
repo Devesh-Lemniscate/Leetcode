@@ -1,3 +1,7 @@
+/*
+ * Problem 2685: Count the Number of Complete Components (POTD)
+ * Language: C++
+ */
 class Solution {
     void dfs(int x, const vector<vector<int>> &con, vector<bool> &mark, int &a, int &b) {
         if (mark[x]) {
@@ -24,7 +28,7 @@ public:
             if (!mark[i]) {
                 int x = 0, y = 0;
                 dfs(i, con, mark, x, y);
-                r += x * (x - 1) == y;
+                r += (x * (x - 1)) == y;
             }
         }
         return r;
