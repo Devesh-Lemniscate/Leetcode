@@ -1,5 +1,5 @@
 /*
- * Problem 3867: Sum of GCD of Formed Pairs
+ * Problem 3867: Sum of GCD of Formed Pairs (POTD)
  * Language: C++
  */
 class Solution {
