@@ -1,5 +1,5 @@
 /*
- * Problem 1081: Smallest Subsequence of Distinct Characters
+ * Problem 1081: Smallest Subsequence of Distinct Characters (POTD)
  * Language: C++
  */
 class Solution {
