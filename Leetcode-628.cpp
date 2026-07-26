@@ -1,5 +1,5 @@
 /*
- * Problem 628: Maximum Product of Three Numbers
+ * Problem 628: Maximum Product of Three Numbers (POTD)
  * Language: C++
  */
 class Solution {
