@@ -1,5 +1,5 @@
 /*
- * Problem 486: Predict the Winner
+ * Problem 486: Predict the Winner (POTD)
  * Language: C++
  */
 class Solution {
