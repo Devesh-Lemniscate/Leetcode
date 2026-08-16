@@ -12,13 +12,9 @@ public:
         while(left < len && right < len){
             if(mp.count(s[right])){
                 while(s[left] != s[right]){
-                    mp[s[left]]--;
-                    if(mp[s[left]] == 0) mp.erase(s[left]);
-                    left++;
+                    mp.erase(s[left++]);
                 }
-                mp[s[left]]--;
-                if(mp[s[left]] == 0) mp.erase(s[left]);
-                left++;
+                mp.erase(s[left++]);
             }
             maxi = max(maxi, right-left+1);
             mp[s[right]]++;
