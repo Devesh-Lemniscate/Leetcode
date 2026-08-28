@@ -34,8 +34,8 @@ public:
                 break;
             }
         }
-        if(flag){
-            while(flag && i >= 0){
+        
+            while(flag){
                 if(ans.size()){
                     freq1[ans.back()-'a']++;
                     ans.pop_back();
@@ -52,7 +52,7 @@ public:
                 }
             }
             if(flag) return "";
-        }
+        
         for(int k = 0; k < 26; k++){
             while(freq1[k] > 0){
                 ans.push_back((k+'a'));
