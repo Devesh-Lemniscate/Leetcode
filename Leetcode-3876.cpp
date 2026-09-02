@@ -5,18 +5,18 @@
 class Solution {
 public:
     bool uniformArray(vector<int>& nums){
-        unordered_set<int> odd, even;
+        int odd = 0, even = 0;
         int mini = INT_MAX;
         for(auto it: nums){
-            if(it & 1) odd.insert(it);
-            else even.insert(it);
+            if(it & 1) odd++;
+            else even++;
             mini = min(mini, it);
         }
         int n = nums.size();
-        if(odd.size() == n || even.size()==n) return true;
+        if(odd == n || even == n) return true;
         long long countOdd = 0;
         if(mini % 2 == 0) return false;
-        countOdd = odd.size() + even.size()*odd.size();
+        countOdd = odd + (long long)even*(long long)odd;
         return countOdd >= n;
     }
 };
