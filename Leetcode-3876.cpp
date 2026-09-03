@@ -1,5 +1,5 @@
 /*
- * Problem 3876: Construct Uniform Parity Array II
+ * Problem 3876: Construct Uniform Parity Array II (POTD)
  * Language: C++
  */
 class Solution {
