@@ -1,5 +1,5 @@
 /*
- * Problem 3903: Smallest Stable Index I
+ * Problem 3903: Smallest Stable Index I (POTD)
  * Language: C++
  */
 class Solution {
