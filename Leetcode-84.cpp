@@ -1,5 +1,5 @@
 /*
- * Problem 84: Largest Rectangle in Histogram (POTD)
+ * Problem 84: Largest Rectangle in Histogram
  * Language: C++
  */
 class Solution {
@@ -8,21 +8,21 @@ public:
         int n = heights.size();
         vector<int> nextSmaller(n), prevSmaller(n);
         stack<int> st;
-        st.push(n);
+        st.push(n-1);
         for(int i = n-2; i >= 0; i--){
             while(!st.empty() && heights[st.top()] >= heights[i]){
                 st.pop();
             }
-            if(st.empty()) nextSmaller[i] = 
+            if(st.empty()) nextSmaller[i] = n;
             else nextSmaller[i] = st.top();
         }
         while(!st.empty()) st.pop();
-
+        st.push(0);
         for(int i = 1; i < n; i++){
             while(!st.empty() && heights[st.top()] >= heights[i]){
                 st.pop();
             }
-            if(st.empty())
+            if(st.empty()) prevSmaller[i] = 1;
             else prevSmaller[i] = st.top();
         }
 
