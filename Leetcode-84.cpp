@@ -1,5 +1,5 @@
 /*
- * Problem 84: Largest Rectangle in Histogram
+ * Problem 84: Largest Rectangle in Histogram (POTD)
  * Language: C++
  */
 class Solution {
