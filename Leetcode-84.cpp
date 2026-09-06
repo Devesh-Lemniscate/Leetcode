@@ -20,7 +20,7 @@ public:
         }
         while(!st.empty()) st.pop();
         st.push(0);
-        prevSmaller[0] = n;
+        prevSmaller[0] = -1;
         for(int i = 1; i < n; i++){
             while(!st.empty() && heights[st.top()] >= heights[i]){
                 st.pop();
