@@ -1,5 +1,5 @@
 /*
- * Problem 3870: Count Commas in Range
+ * Problem 3870: Count Commas in Range (POTD)
  * Language: C++
  */
 class Solution {
