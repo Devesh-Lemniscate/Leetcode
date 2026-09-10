@@ -14,8 +14,22 @@
  * };
  */
 class Solution {
+private:
+    int ans = 0;
+    pair<int, int> helper(TreeNode* root){
+        if(!root) return {0, 0};
+        auto left = helper(root->left);
+        auto right = helper(root->right);
+        int lc = left.first, rc = right.first;
+        int ls = left.second, rs = right.second;
+        int sum = ls + rs + root->val;
+        int count = lc + rc + 1;
+        if(sum / count == root->val) ans++;
+        return {count, sum};
+    }
 public:
     int averageOfSubtree(TreeNode* root) {
-        
+        helper(root);
+        return ans;
     }
 };
