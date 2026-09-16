@@ -14,15 +14,12 @@ private:
         int ans = 0;
         if(flag) ans = (ans % mod + helper(ind, (count+1) % mod, !flag) % mod) % mod;
         else ans = (ans % mod + helper(ind+1, count, !flag) % mod) % mod;
-
         return dp[ind][count][flag] = (ans%mod + helper(ind+1, count, flag) % mod) % mod;
     }
 public:
     int numberOfSets(int num, int val) {
         n = num, k = val;
-        int ans = 0;
         memset(dp, -1, sizeof(dp));
-        ans += helper(0, 0, false);
-        return ans;
+        return helper(0, 0, false);
     }
 };
