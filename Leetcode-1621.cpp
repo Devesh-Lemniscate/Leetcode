@@ -5,21 +5,30 @@
 class Solution {
 private:
     const int mod = 1e9+7;
-    int n, k;
-    int dp[1001][1001][2];
-    int helper(int ind, int count, bool flag){
-        if(ind >= n) return 0;
-        if(count == k) return 1;
-        if(dp[ind][count][flag] != -1) return dp[ind][count][flag];
-        int ans = 0;
-        if(flag) ans = (ans % mod + helper(ind, (count+1) % mod, !flag) % mod) % mod;
-        else ans = (ans % mod + helper(ind+1, count, !flag) % mod) % mod;
-        return dp[ind][count][flag] = (ans%mod + helper(ind+1, count, flag) % mod) % mod;
+
+    long long power(long long base, long long exp){
+        long long res = 1;
+        base %= mod;
+        while(exp > 0){
+            if(exp % 2) res = ((base % mod) * (res % mod)) % mod;
+            base = ((base % mod) * (base % mod)) % mod;
+            exp /= 2;
+        }
+        return res;
     }
+
+    long long modInverse(long long n){
+        return power(n, mod-2);
+    }
+
 public:
-    int numberOfSets(int num, int val) {
-        n = num, k = val;
-        memset(dp, -1, sizeof(dp));
-        return helper(0, 0, false);
+    int numberOfSets(int n, int k) {
+        long long numerator = 1, denominator = 1;
+        int N = n+k-1;
+        for(int i = 1; i <= 2*k; i++){
+            numerator = (numerator * (N - i + 1)) % mod;
+            denominator = (denominator * i) % mod;
+        } 
+        return (numerator * modInverse(denominator)) % mod;
     }
 };
