@@ -9,9 +9,10 @@ public:
         string ans;
         for(auto ch: s){
             if(ch == ')'){
-
+                reverse(ans.begin(), ans.ed)
             }else if(ch == '('){
-                st
+                st.push(ans);
+                ans.clear();
             }else{
                 ans.push_back(ch);
             }
