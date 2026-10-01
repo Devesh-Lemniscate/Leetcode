@@ -1,5 +1,5 @@
 /*
- * Problem 20: Valid Parentheses
+ * Problem 20: Valid Parentheses (POTD)
  * Language: C++
  */
 class Solution {
