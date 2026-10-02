@@ -1,5 +1,5 @@
 /*
- * Problem 22: Generate Parentheses
+ * Problem 22: Generate Parentheses (POTD)
  * Language: C++
  */
 class Solution {
