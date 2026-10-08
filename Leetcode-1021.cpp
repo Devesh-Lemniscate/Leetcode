@@ -10,11 +10,11 @@ public:
         int ind = 0, n = s.size();
         while(ind < n){
             if(s[ind] == '('){
-                if(st.size()) ans.push_back('(');
-                st.push(1);
+                if(count > 0) ans.push_back('(');
+                count++;
             }else{
-                st.pop();
-                if(st.size()) ans.push_back(')');
+                count--;
+                if(count > 0) ans.push_back(')');
             }
             ind++;
         }
