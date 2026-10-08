@@ -6,7 +6,7 @@ class Solution {
 public:
     string removeOuterParentheses(string s) {
         string ans;
-        stack<int> st;
+        int count = 0;
         int ind = 0, n = s.size();
         while(ind < n){
             if(s[ind] == '('){
