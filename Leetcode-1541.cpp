@@ -10,7 +10,6 @@ public:
         stack<int> st;
         int count = 0;
         while(ind < n){
-            cout << ind << " " << count << endl;
             if(s[ind] == '(') st.push(1);
             else{
                 if(!st.empty() && ind+1 < n && s[ind] == ')' && s[ind+1] == ')'){
