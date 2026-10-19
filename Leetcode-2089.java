@@ -1,0 +1,17 @@
+/*
+ * Problem 2089: Find Target Indices After Sorting Array (POTD)
+ * Language: Java
+ */
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+        int n = nums.length;
+        Arrays.sort(nums);
+        ArrayList<Integer> ans = new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            if(nums[i] == target){
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
