@@ -11,4 +11,5 @@ public:
         for (int i = 0; i < n; i++)
             grid[i][m - 1] = '.';
         return grid;
+    }
 };
