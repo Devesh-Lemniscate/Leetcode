@@ -1,5 +1,5 @@
 /*
- * Problem 3882: Minimum XOR Path in a Grid
+ * Problem 3882: Minimum XOR Path in a Grid (POTD)
  * Language: C++
  */
 class Solution {
