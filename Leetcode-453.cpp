@@ -1,0 +1,26 @@
+/*
+ * Problem 453: Minimum Moves to Equal Array Elements (POTD)
+ * Language: C++
+ */
+class Solution {
+public:
+    int minMoves(vector<int>& nums) {
+        sort(nums.rbegin(), nums.rend());
+        int answer = 0;
+        for(int i = 1; i < nums.size(); i++){
+            answer += (nums[i-1] - nums[i]) * i;
+        }
+        return answer;
+    }
+};
+
+/*
+5 4 4 
+
+1  5  10 20  = 10
+11 15 20 20  = 5
+16 20 20 25 = 4
+20 24 24 25 = 1
+21 25 25 25 = 4
+25 29 29 25 
+*/
