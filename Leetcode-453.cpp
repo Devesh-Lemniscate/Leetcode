@@ -5,7 +5,7 @@
 class Solution {
 public:
     int minMoves(vector<int>& nums) {
-        return (a)
+        return (accumulate(nums.begin(), nums.end(), 0)  - (nums.size() * (*min_l)))
     }
 };
 
