@@ -5,12 +5,7 @@
 class Solution {
 public:
     int minMoves(vector<int>& nums) {
-        sort(nums.rbegin(), nums.rend());
-        int answer = 0;
-        for(int i = 1; i < nums.size(); i++){
-            answer += (nums[i-1] - nums[i]) * i;
-        }
-        return answer;
+        return (a)
     }
 };
 
